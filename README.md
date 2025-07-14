@@ -1,9 +1,8 @@
 Personal Portfolio Website
+
 It is live now : gauravsubedi123.com.np
 
 A modern, fully‑responsive portfolio built with React + TypeScript + Vite + Tailwind CSS. It showcases my projects, skills, experience, and contact details with smooth animations and a clean, accessible design.
-
-Live demo: 
 
 ✨ Features
 

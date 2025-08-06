@@ -12,12 +12,20 @@ interface Project {
 
 const projects: Project[] = [
   {
+    title: "PhotoPhrase",
+    description:
+      "Auilt an end-to-end AI-driven image-captioning system by creating a cross-platform Expo React Native app in TypeScript with integrated camera/gallery flows and a responsive PreviewScreen, and a Flask API that wraps and tunes Hugging Face’s Salesforce/blip-image-captioning-large model via multipart/form-data for accurate captions.",
+    image: "123.jpg",
+    tech: ["React Native", "TypeScript", "Flask", "Python"],
+    github: "https://github.com/gaurav-subedi/photophrase",
+  },
+  {
     title: "Portfolio Website",
     description:
       "A fully responsive personal website built with React, TypeScript, and Tailwind CSS. It features interactive dark mode, smooth navigation, a clean UI, and easy scalability for future updates.",
     image: "Portfolio.png",
     tech: ["React", "TypeScript", "Tailwind"],
-    github: "https://github.com/yourname/portfolio",
+    github: "https://github.com/gaurav-subedi/my-portfolio",
   },
   {
     title: "Face & Gesture Detection",

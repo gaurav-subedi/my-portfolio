@@ -7,10 +7,9 @@ const experiences = [
     company: "Oak Hill Advisors",
     period: "Summer 2025",
     responsibilities: [
-      "Developed and deployed automated daily report templates, streamlining data processing and significantly improving report accuracy.",
-      "Analyzed and resolved complex data discrepancies by refining SQL logic and optimizing primary key usage, enhancing data reliability across critical applications.",
-      "Demonstrated strong problem-solving skills by proactively identifying and troubleshooting issues, resulting in increased operational efficiency and team productivity.",
-      "Actively participated in team meetings and code reviews, providing meaningful contributions to improve system functionality and user experience.",
+      "Designed and deployed a C# importer console app on AWS Lambda to stream real-time ticket data from the Adobe Workfront REST API into a custom API controller, storing it in MS SQL Server for Power BI analytics supporting data-driven decisions",
+      "Streamlined Azure DevOps CI/CD (XML + JAMS) and modernized a legacy VSTO Excel reporting tool, reducing refresh latency and maintenance overhead.",
+      "Developed and implemented daily and weekly investor reporting templates in Excel Service, optimized SQL queries, and resolved production issues by closing Workfront tickets, ensuring accurate and uninterrupted data operations.",
     ],
   },
 ];

@@ -14,34 +14,34 @@ const projects: Project[] = [
   {
     title: "PhotoPhrase",
     description:
-      "Auilt an end-to-end AI-driven image-captioning system by creating a cross-platform Expo React Native app in TypeScript with integrated camera/gallery flows and a responsive PreviewScreen, and a Flask API that wraps and tunes Hugging Face’s Salesforce/blip-image-captioning-large model via multipart/form-data for accurate captions.",
+      "Built an end-to-end AI-driven image-captioning system by creating a cross-platform Expo React Native app in TypeScript with integrated camera/gallery flows and a responsive PreviewScreen, and a Flask API that wraps and tunes Hugging Face’s Salesforce/blip-image-captioning-large model via multipart/form-data for accurate captions.",
     image: "123.jpg",
     tech: ["React Native", "TypeScript", "Flask", "Python"],
     github: "https://github.com/gaurav-subedi/photophrase",
   },
   {
-    title: "Portfolio Website",
+    title: "Face & Gesture Based Attendance System",
     description:
-      "A fully responsive personal website built with React, TypeScript, and Tailwind CSS. It features interactive dark mode, smooth navigation, a clean UI, and easy scalability for future updates.",
-    image: "Portfolio.png",
-    tech: ["React", "TypeScript", "Tailwind"],
-    github: "https://github.com/gaurav-subedi/my-portfolio",
-  },
-  {
-    title: "Face & Gesture Detection",
-    description:
-      "A real-time desktop tool (C# + OpenCV) that captures webcam video, detects multiple faces, and classifies hand gestures such as fist, palm, or victory sign.",
+      "Built a real-time attendance system using Python, OpenCV, and MediaPipe for face and gesture recognition, integrated with a C# UI via WebSockets to log check-ins to CSV, featuring gesture-based confirmations and debounce logic that improved accuracy by 25% and virtually eliminated duplicate entries.",
     image: "FaceDetection.jpg",
     tech: ["Python", "C#", "OpenCV", "MediaPipe"],
     github: "https://github.com/gaurav-subedi/Face-Recognition",
   },
   {
-    title: "To-Do List App",
+    title: "Task Tracker",
     description:
-      "Full-stack to-do manager built with React and Django REST Framework, backed by PostgreSQL. Supports secure CRUD operations and a responsive UI.",
+      "Built a full-stack task management application using React.js, Django REST Framework, and PostgreSQL with a responsive UI and RESTful CRUD operations, optimizing frontend–backend communication through CORS and JSON APIs to improve task retrieval speed and ensure seamless user experience.",
     image: "/ToDoList.png",
     tech: ["React", "Django", "PostgreSQL"],
     github: "https://github.com/gaurav-subedi/FullStack_ToDoList",
+  },
+  {
+    title: "Portfolio Website",
+    description:
+      "Developed a fully responsive personal website with React, TypeScript, and Tailwind CSS, featuring dark mode, smooth navigation, and a clean,    optimized UI, designed to be easily scalable for future updates.",
+    image: "Portfolio.png",
+    tech: ["React", "TypeScript", "Tailwind"],
+    github: "https://github.com/gaurav-subedi/my-portfolio",
   },
 ];
 

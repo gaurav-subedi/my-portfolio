@@ -5,59 +5,102 @@ const experiences = [
   {
     role: "Application Development Intern",
     company: "Oak Hill Advisors",
-    period: "Summer 2025",
+    type: "Part-time",
+    period: "Aug 2025 – Present",
+    location: "Fort Worth, TX",
+    stack: ["C#", "SQL", "Excel Automation"],
     responsibilities: [
-      "Designed and deployed a C# importer console app on AWS Lambda to stream real-time ticket data from the Adobe Workfront REST API into a custom API controller, storing it in MS SQL Server for Power BI analytics supporting data-driven decisions",
-      "Streamlined Azure DevOps CI/CD (XML + JAMS) and modernized a legacy VSTO Excel reporting tool, reducing refresh latency and maintenance overhead.",
-      "Developed and implemented daily and weekly investor reporting templates in Excel Service, optimized SQL queries, and resolved production issues by closing Workfront tickets, ensuring accurate and uninterrupted data operations.",
+      "Replaced a Power Automate Desktop workflow with a headless C# tool automating fetch, refresh, and archival of ~100 Excel templates — cutting 5+ hours of machine-locked runtime per cycle",
+      "Full-stack point of contact for IR, Finance, and Accounting stakeholders, shipping C# and SQL solutions end-to-end",
+      "Drive production reliability through SQL optimization, incident resolution, and continuous delivery on live reporting pipelines",
+    ],
+  },
+  {
+    role: "Application Development Intern",
+    company: "Oak Hill Advisors",
+    type: "Full-time",
+    period: "Jun 2025 – Aug 2025",
+    location: "Fort Worth, TX",
+    stack: ["AWS Lambda", "C#", "MS SQL Server", "Power BI", "Azure DevOps"],
+    responsibilities: [
+      "Sole-engineered a real-time pipeline streaming 15 datasets at 3-minute intervals from the Workfront REST API through AWS Lambda into MS SQL Server, powering live Power BI dashboards",
+      "Stood up end-to-end AWS infrastructure via config.yaml: Lambda, JAMS scheduling, event triggers, CloudWatch monitoring",
+      "Modernized a legacy VSTO Excel tool and tightened Azure DevOps CI/CD pipelines, cutting refresh latency firm-wide",
     ],
   },
 ];
 
-const fadeSlide = {
-  hidden: { opacity: 0, x: -30 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 export default function Experiences() {
   return (
-    <SectionWrapper id="experience" title="Experience">
-      <div className="relative">
-        <div className="hidden md:block absolute left-4 top-0 bottom-0 w-1 bg-orange-500" />
+    <SectionWrapper
+      id="experience"
+      title="Experience"
+      index="03"
+      eyebrow="Where I've worked"
+    >
+      <div className="relative space-y-8 pl-8 md:pl-10">
+        {/* vertical green timeline rail connecting both entries */}
+        <div className="absolute left-[6px] top-3 bottom-3 w-px bg-gradient-to-b from-accent/70 via-accent/40 to-accent/15 md:left-2" />
 
-        <div className="space-y-12">
-          {experiences.map((exp, idx) => (
-            <motion.article
-              key={exp.company}
-              variants={fadeSlide}
-              transition={{ delay: idx * 0.2 }}
-              whileHover={{ scale: 1.02 }}
-              className="
-                relative md:flex md:items-start p-6 md:p-8 rounded-2xl shadow-lg
-                bg-white  text-gray-900
-                dark:bg-gray-900 dark:text-gray-200
-                transition-colors
-              "
-            >
-              <div className="absolute left-0 top-6 md:relative md:left-auto md:top-auto">
-                <div className="w-4 h-4 rounded-full bg-orange-500 border-2 border-white shadow" />
-              </div>
+        {experiences.map((exp, idx) => (
+          <motion.article
+            key={exp.period}
+            variants={fadeUp}
+            transition={{ delay: idx * 0.15 }}
+            className="card relative p-6 transition-colors duration-300 hover:border-accent/40 md:p-8"
+          >
+            {/* glowing timeline dot */}
+            <span
+              className="absolute -left-[26px] top-8 h-3.5 w-3.5 rounded-full border-2 border-bg bg-accent md:-left-[34px]"
+              style={{ boxShadow: "0 0 10px 1px var(--accent)" }}
+            />
 
-              <div className="md:w-1/3">
-                <h3 className="text-2xl font-semibold">{exp.role}</h3>
-                <p className="text-orange-500 dark:text-orange-400 mt-1 font-medium">
-                  {exp.company} &bull; {exp.period}
+            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+              <div>
+                <h3 className="font-display text-2xl font-semibold text-fg">
+                  {exp.role}
+                </h3>
+                <p className="mt-1 font-medium text-accent-text">
+                  {exp.company} · {exp.type}
                 </p>
               </div>
+              {/* date pill badge + location */}
+              <div className="flex flex-col gap-1.5 md:items-end">
+                <span className="w-fit rounded-full border border-border bg-bg-alt px-3 py-1 font-mono text-xs uppercase tracking-wide text-fg-muted">
+                  {exp.period}
+                </span>
+                <span className="font-mono text-xs text-fg-muted">
+                  {exp.location}
+                </span>
+              </div>
+            </div>
 
-              <ul className="md:w-2/3 mt-4 md:mt-0 list-disc list-inside space-y-2 marker:text-gray-600 dark:marker:text-gray-400">
-                {exp.responsibilities.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </motion.article>
-          ))}
-        </div>
+            {/* tech chips */}
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {exp.stack.map((t) => (
+                <li
+                  key={t}
+                  className="rounded-md border border-accent/25 bg-accent/10 px-2.5 py-1 font-mono text-xs text-accent-text"
+                >
+                  {t}
+                </li>
+              ))}
+            </ul>
+
+            <ul className="mt-6 list-disc space-y-3 pl-5 text-fg-muted marker:text-accent">
+              {exp.responsibilities.map((item) => (
+                <li key={item} className="leading-relaxed">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </motion.article>
+        ))}
       </div>
     </SectionWrapper>
   );

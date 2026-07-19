@@ -2,26 +2,30 @@ import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import {
   SiPython,
-  SiC,
-  SiSharp,
+  SiTypescript,
   SiJavascript,
-  SiMysql,
-  SiHtml5,
-  SiCss3,
   SiReact,
-  SiDjango,
+  SiFastapi,
+  SiPostgresql,
+  SiMysql,
+  SiSharp,
+  SiDocker,
 } from "react-icons/si";
+import { FaJava, FaAws } from "react-icons/fa";
+import type { IconType } from "react-icons";
 
-const skills = [
-  { name: "Python", icon: SiPython, level: 80 },
-  { name: "C", icon: SiC, level: 80 },
-  { name: "C#", icon: SiSharp, level: 70 },
-  { name: "JavaScript", icon: SiJavascript, level: 70 },
-  { name: "SQL", icon: SiMysql, level: 70 },
-  { name: "HTML5", icon: SiHtml5, level: 95 },
-  { name: "CSS3", icon: SiCss3, level: 90 },
-  { name: "React", icon: SiReact, level: 75 },
-  { name: "Django", icon: SiDjango, level: 70 },
+const skills: { name: string; icon: IconType }[] = [
+  { name: "Python", icon: SiPython },
+  { name: "TypeScript", icon: SiTypescript },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "React", icon: SiReact },
+  { name: "FastAPI", icon: SiFastapi },
+  { name: "PostgreSQL", icon: SiPostgresql },
+  { name: "SQL", icon: SiMysql },
+  { name: "C#", icon: SiSharp },
+  { name: "Java", icon: FaJava },
+  { name: "AWS", icon: FaAws },
+  { name: "Docker", icon: SiDocker },
 ];
 
 const fadeUp = {
@@ -31,40 +35,24 @@ const fadeUp = {
 
 export default function Skills() {
   return (
-    <SectionWrapper id="skills" title="Skills">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-        {skills.map(({ name, icon: Icon, level }) => (
+    <SectionWrapper
+      id="skills"
+      title="Skills"
+      index="02"
+      eyebrow="What I work with"
+      alt
+    >
+      <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
+        {skills.map(({ name, icon: Icon }) => (
           <motion.div
             key={name}
             variants={fadeUp}
-            whileHover={{ scale: 1.05 }}
-            className="
-              flex flex-col items-center p-6 rounded-2xl shadow-lg select-none
-              bg-white  text-gray-900
-              dark:bg-gray-900 dark:text-gray-200
-              transition-colors
-            "
+            className="card group flex select-none items-center gap-4 p-5 transition-colors duration-300 hover:border-accent/40"
           >
-            <Icon className="text-4xl text-orange-500 mb-4" />
-            <h3 className="text-lg font-semibold mb-2">{name}</h3>
-
-            <div className="w-full">
-              <div
-                className="h-2 w-full rounded-full overflow-hidden
-                              bg-gray-200  dark:bg-gray-700"
-              >
-                <div
-                  className="h-full rounded-full bg-orange-500 transition-all duration-700"
-                  style={{ width: `${level}%` }}
-                />
-              </div>
-              <p
-                className="mt-2 text-sm text-center
-                             text-gray-600 dark:text-gray-400"
-              >
-                {level}%
-              </p>
-            </div>
+            <Icon className="shrink-0 text-3xl text-accent-text" />
+            <h3 className="font-display text-lg font-semibold text-fg">
+              {name}
+            </h3>
           </motion.div>
         ))}
       </div>

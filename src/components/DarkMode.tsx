@@ -18,8 +18,7 @@ const DarkMode = () => {
     <button
       aria-label="Toggle dark mode"
       onClick={() => setIsDark(!isDark)}
-      className="text-xl p-1.5 rounded-md transition bg-gray-200
-                 hover:bg-gray-500 dark:hover:bg-gray-100 m-3"
+      className="ml-3 rounded-control border border-border p-2 text-base text-fg-muted transition-colors hover:border-accent/40 hover:text-accent-text"
     >
       {isDark ? <FaSun /> : <FaMoon />}
     </button>

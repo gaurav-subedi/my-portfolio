@@ -14,11 +14,21 @@ const fadeUp: Variants = {
 interface Props extends PropsWithChildren {
   id: string;
   title: string;
+  /** Two-digit section number for the mono eyebrow, e.g. "01". */
+  index: string;
+  /** Short descriptor shown after the number in the eyebrow label. */
+  eyebrow: string;
+  /** Use the alternating (slightly elevated) background band. */
+  alt?: boolean;
   className?: string;
 }
+
 export default function SectionWrapper({
   id,
   title,
+  index,
+  eyebrow,
+  alt = false,
   children,
   className = "",
 }: Props) {
@@ -26,39 +36,50 @@ export default function SectionWrapper({
     <section
       id={id}
       className={`
-        relative w-full py-24 px-6 overflow-hidden
-        bg-white  text-gray-950
-        dark:bg-gray-950 dark:text-gray-200
+        relative w-full overflow-hidden py-8 md:py-12
+        ${alt ? "bg-bg-alt" : "bg-bg"} text-fg
         transition-colors duration-300
         ${className}
       `}
     >
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-40px" }}
-        className="mb-16 flex justify-center"
-      >
-        <motion.h2
-          variants={fadeUp}
-          className="
-            text-5xl font-extrabold tracking-wide pb-2 border-b-4
-            border-orange-500 dark:border-orange-400
-          "
-        >
-          {title}
-        </motion.h2>
-      </motion.div>
+      {/* technical dot-grid backdrop */}
+      <div
+        aria-hidden
+        className="bg-dotgrid pointer-events-none absolute inset-0 opacity-70"
+      />
 
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-40px" }}
-      >
-        {children}
-      </motion.div>
+      <div className="relative mx-auto max-w-7xl">
+        {/* numbered green eyebrow + large bold title */}
+        <motion.header
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-40px" }}
+          className="mb-7 md:mb-10"
+        >
+          <motion.p
+            variants={fadeUp}
+            className="mb-3 font-mono text-sm uppercase tracking-[0.15em] text-accent-text"
+          >
+            {index} — {eyebrow}
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            className="max-w-3xl font-display text-4xl font-extrabold tracking-tight text-fg md:text-6xl"
+          >
+            {title}
+          </motion.h2>
+        </motion.header>
+
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-40px" }}
+        >
+          {children}
+        </motion.div>
+      </div>
     </section>
   );
 }

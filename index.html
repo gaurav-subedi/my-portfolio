@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <html data-theme="dark">
-    <head>
-      <meta charset="UTF-8" />
-      <link rel="icon" type="image/svg+xml" href="./public/wlogo.png" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link href="/src/index.css" rel="stylesheet" />
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/wlogo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <title>Gaurav Subedi</title>
-    </head>
+    <!-- No-flash theme: set .dark before first paint (no layout shift). -->
+    <script>
+      (function () {
+        try {
+          var dark =
+            localStorage.theme === "dark" ||
+            (!("theme" in localStorage) &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          document.documentElement.classList.toggle("dark", dark);
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Fonts: Geist (display/body) + JetBrains Mono (labels) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Gaurav Subedi</title>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENKJCV1K2K"></script>
     <script>
@@ -18,9 +37,9 @@
 
       gtag('config', 'G-ENKJCV1K2K');
     </script>
-    <body>
-      <div id="root"></div>
-      <script type="module" src="/src/main.tsx"></script>
-    </body>
-  </html>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

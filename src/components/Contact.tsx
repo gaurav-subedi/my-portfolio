@@ -14,6 +14,9 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
+const inputClasses =
+  "w-full rounded-control border border-border bg-bg px-4 py-3 text-fg placeholder:text-fg-muted transition-colors focus:border-accent/50 focus:outline-none focus:ring-2 focus:ring-accent/40";
+
 export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -39,42 +42,44 @@ export default function Contact() {
   };
 
   return (
-    <SectionWrapper id="contact" title="Contact Me">
-      <motion.div
-        variants={{ show: { transition: { staggerChildren: 0.15 } } }}
-        className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16"
+    <SectionWrapper
+      id="contact"
+      title="Contact Me"
+      index="05"
+      eyebrow="Let's connect"
+    >
+      <motion.h3
+        variants={fadeUp}
+        className="mb-12 max-w-3xl font-display text-3xl font-bold text-fg md:text-4xl"
       >
-        <motion.div
-          variants={fadeUp}
-          className="md:w-1/2 space-y-8 select-none"
-        >
+        Have a project in mind?{" "}
+        <span className="text-gradient">Let's build it together.</span>
+      </motion.h3>
+
+      <div className="flex flex-col gap-8 md:flex-row md:gap-12">
+        <motion.div variants={fadeUp} className="space-y-4 md:w-1/2">
           {[
-            {
-              Icon: UserIcon,
-              label: "Name",
-              value: "Gaurav Subedi",
-            },
-            {
-              Icon: MapPinIcon,
-              label: "Location",
-              value: "Arlington, Texas",
-            },
+            { Icon: UserIcon, label: "Name", value: "Gaurav Subedi" },
+            { Icon: MapPinIcon, label: "Location", value: "Arlington, Texas" },
             {
               Icon: EnvelopeIcon,
               label: "Email",
               value: "thegauravsubedi@gmail.com",
             },
-            {
-              Icon: PhoneIcon,
-              label: "Phone",
-              value: "(682)-559-2499",
-            },
+            { Icon: PhoneIcon, label: "Phone", value: "(682)-559-2499" },
           ].map(({ Icon, label, value }) => (
-            <div key={label} className="flex items-start gap-4">
-              <Icon className="h-6 w-6 text-orange-500 mt-1" />
+            <div
+              key={label}
+              className="card flex items-start gap-4 p-5 transition-colors duration-300 hover:border-accent/40"
+            >
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-control border border-accent/25 bg-accent/10">
+                <Icon className="h-5 w-5 text-accent-text" />
+              </span>
               <div>
-                <h3 className="text-xl font-semibold">{label}</h3>
-                <p className="text-lg">{value}</p>
+                <h4 className="font-mono text-xs uppercase tracking-wider text-fg-muted">
+                  {label}
+                </h4>
+                <p className="text-lg text-fg">{value}</p>
               </div>
             </div>
           ))}
@@ -84,36 +89,21 @@ export default function Contact() {
           ref={formRef}
           onSubmit={sendEmail}
           variants={fadeUp}
-          className="
-            md:w-1/2 space-y-4 p-6 rounded-lg shadow-md
-            bg-white  text-gray-900
-            dark:bg-gray-900 dark:text-gray-200
-            transition-colors
-          "
+          className="card space-y-4 p-6 md:w-1/2 md:p-8"
         >
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col gap-4 md:flex-row">
             <input
               name="name"
               placeholder="Your Name"
               required
-              className="
-                w-full p-3 rounded-md border
-                bg-transparent
-                border-gray-400  focus:ring-2 focus:ring-orange-500
-                dark:border-gray-600 dark:focus:ring-orange-400
-              "
+              className={inputClasses}
             />
             <input
               type="email"
               name="email"
               placeholder="Your Email"
               required
-              className="
-                w-full p-3 rounded-md border
-                bg-transparent
-                border-gray-400  focus:ring-2 focus:ring-orange-500
-                dark:border-gray-600 dark:focus:ring-orange-400
-              "
+              className={inputClasses}
             />
           </div>
 
@@ -121,12 +111,7 @@ export default function Contact() {
             name="title"
             placeholder="Subject"
             required
-            className="
-              w-full p-3 rounded-md border
-              bg-transparent
-              border-gray-400  focus:ring-2 focus:ring-orange-500
-              dark:border-gray-600 dark:focus:ring-orange-400
-            "
+            className={inputClasses}
           />
 
           <textarea
@@ -134,27 +119,17 @@ export default function Contact() {
             rows={5}
             placeholder="Your Message"
             required
-            className="
-              w-full p-3 rounded-md border
-              bg-transparent
-              border-gray-400  focus:ring-2 focus:ring-orange-500
-              dark:border-gray-600 dark:focus:ring-orange-400
-            "
+            className={inputClasses}
           />
 
           <button
             type="submit"
-            className="
-              inline-block w-full py-3 rounded-md font-semibold text-lg
-              bg-orange-600 hover:bg-orange-700 text-white
-              dark:bg-orange-500 dark:hover:bg-orange-400
-              transition-colors
-            "
+            className="w-full rounded-control bg-accent py-3 text-lg font-semibold text-black transition-colors hover:bg-accent-dim"
           >
             Send Message
           </button>
         </motion.form>
-      </motion.div>
+      </div>
     </SectionWrapper>
   );
 }

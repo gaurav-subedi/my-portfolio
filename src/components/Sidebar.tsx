@@ -1,5 +1,5 @@
 import { FaGithub, FaLinkedinIn, FaEnvelope } from "react-icons/fa";
-import profilePic from "/about.jpg";
+import profilePic from "/about.webp";
 
 const socials = [
   { Icon: FaGithub, href: "https://github.com/gaurav-subedi", label: "GitHub" },
@@ -28,8 +28,11 @@ export default function Sidebar() {
         {/* TOP — logo mark only + availability pill */}
         <div className="space-y-5">
           <img
-            src="/wlogo.png"
+            src="/wlogo.webp"
             alt="Gaurav Subedi logo"
+            width={3300}
+            height={2508}
+            loading="eager"
             className="h-9 w-auto object-contain"
           />
           <div className="inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5">
@@ -50,6 +53,10 @@ export default function Sidebar() {
             <img
               src={profilePic}
               alt="Gaurav Subedi"
+              width={2049}
+              height={2026}
+              loading="eager"
+              fetchPriority="high"
               className="aspect-square w-full select-none object-cover"
             />
           </div>

@@ -2,12 +2,8 @@ import { useEffect, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 const DarkMode = () => {
-  const [isDark, setIsDark] = useState(
-    () =>
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-  );
+  // Dark by default; only light if the user explicitly chose it.
+  const [isDark, setIsDark] = useState(() => localStorage.theme !== "light");
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);

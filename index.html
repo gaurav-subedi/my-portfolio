@@ -1,18 +1,16 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/wlogo.png" />
+    <link rel="icon" type="image/webp" href="/wlogo.webp" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- No-flash theme: set .dark before first paint (no layout shift). -->
     <script>
       (function () {
         try {
-          var dark =
-            localStorage.theme === "dark" ||
-            (!("theme" in localStorage) &&
-              window.matchMedia("(prefers-color-scheme: dark)").matches);
+          // Dark by default; only light if the user explicitly chose it.
+          var dark = localStorage.theme !== "light";
           document.documentElement.classList.toggle("dark", dark);
         } catch (e) {}
       })();
@@ -29,36 +27,47 @@
     <title>Gaurav Subedi — Software Engineer</title>
     <meta
       name="description"
-      content="CS student at UT Arlington and software engineering intern at Oak Hill Advisors. I build real-time systems and full-stack tools with FastAPI, React, TypeScript, and AWS."
+      content="CS student at UT Arlington and Software Engineering Intern at Oak Hill Advisors. I build real-time systems and full-stack tools with FastAPI, React, TypeScript, and AWS."
     />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Gaurav Subedi — Software Engineer" />
     <meta
       property="og:description"
-      content="CS student at UT Arlington and software engineering intern at Oak Hill Advisors. I build real-time systems and full-stack tools with FastAPI, React, TypeScript, and AWS."
+      content="CS student at UT Arlington and Software Engineering Intern at Oak Hill Advisors. I build real-time systems and full-stack tools with FastAPI, React, TypeScript, and AWS."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://gauravsubedi123.com.np/" />
-    <meta property="og:image" content="https://gauravsubedi123.com.np/og-image.png" />
+    <meta
+      property="og:image"
+      content="https://gauravsubedi123.com.np/og-image.png"
+    />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Gaurav Subedi — Software Engineer" />
     <meta
       name="twitter:description"
-      content="CS student at UT Arlington and software engineering intern at Oak Hill Advisors. I build real-time systems and full-stack tools with FastAPI, React, TypeScript, and AWS."
+      content="CS student at UT Arlington and Software Engineering Intern at Oak Hill Advisors. I build real-time systems and full-stack tools with FastAPI, React, TypeScript, and AWS."
     />
-    <meta name="twitter:image" content="https://gauravsubedi123.com.np/og-image.png" />
+    <meta
+      name="twitter:image"
+      content="https://gauravsubedi123.com.np/og-image.png"
+    />
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ENKJCV1K2K"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ENKJCV1K2K"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-      gtag('config', 'G-ENKJCV1K2K');
+      gtag("config", "G-ENKJCV1K2K");
     </script>
   </head>
   <body>

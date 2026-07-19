@@ -13,6 +13,8 @@ interface Project {
   title: string;
   description: string;
   image?: string; // omit to render a styled placeholder
+  imageWidth?: number; // intrinsic px — set alongside `image` to avoid layout shift
+  imageHeight?: number;
   tech: string[];
   links: ProjectLink[];
   comingSoon?: boolean;
@@ -22,7 +24,9 @@ const featured: Project = {
   title: "Launchpad",
   description:
     "Internship tracker that auto-parses recruitment emails via Gmail API, extracts structured data with an LLM, and tracks applied → interview → offer in a live dashboard.",
-  image: "launchpad.png",
+  image: "launchpad.webp",
+  imageWidth: 1836,
+  imageHeight: 657,
   tech: ["FastAPI", "Supabase", "React", "TypeScript", "LLM"],
   links: [
     {
@@ -43,7 +47,9 @@ const projects: Project[] = [
     title: "Real-time Chat App",
     description:
       "Real-time messaging with WebSocket-powered live chat. FastAPI backend, React/TypeScript frontend, PostgreSQL on Supabase.",
-    image: "realtimechat.png",
+    image: "realtimechat.webp",
+    imageWidth: 1052,
+    imageHeight: 359,
     tech: ["FastAPI", "React", "TypeScript", "PostgreSQL", "WebSockets"],
     links: [
       {
@@ -62,7 +68,9 @@ const projects: Project[] = [
     title: "PhotoPhrase",
     description:
       "An end-to-end AI image-captioning system with a cross-platform Expo React Native app in TypeScript. A Flask API wraps Hugging Face's BLIP model to generate accurate captions.",
-    image: "123.jpg",
+    image: "123.webp",
+    imageWidth: 1080,
+    imageHeight: 1080,
     tech: ["React Native", "TypeScript", "Flask", "Python"],
     links: [
       {
@@ -164,6 +172,8 @@ export default function Projects() {
               <img
                 src={featured.image}
                 alt={`${featured.title} screenshot`}
+                width={featured.imageWidth}
+                height={featured.imageHeight}
                 loading="lazy"
                 className="h-full w-full object-cover object-center"
               />
@@ -224,6 +234,8 @@ export default function Projects() {
                     <img
                       src={p.image}
                       alt={`${p.title} screenshot`}
+                      width={p.imageWidth}
+                      height={p.imageHeight}
                       loading="lazy"
                       className="h-full w-full object-cover object-top"
                     />

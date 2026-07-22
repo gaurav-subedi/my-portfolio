@@ -44,7 +44,7 @@ const featured: Project = {
 
 const projects: Project[] = [
   {
-    title: "Real-time Chat App",
+    title: "CHATTER",
     description:
       "Real-time messaging with WebSocket-powered live chat. FastAPI backend, React/TypeScript frontend, PostgreSQL on Supabase.",
     image: "realtimechat.webp",
@@ -59,7 +59,7 @@ const projects: Project[] = [
       },
       {
         label: "GitHub",
-        href: "https://github.com/gaurav-subedi/realtime-chat",
+        href: "https://github.com/gaurav-subedi/Chatter",
         external: true,
       },
     ],
